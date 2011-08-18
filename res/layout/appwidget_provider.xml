@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2006 The Android Open Source Project
+	
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+	
+	http://www.apache.org/licenses/LICENSE-2.0
+	
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:id="@+id/app_list">
+
+	
+
+	<RelativeLayout android:background="@drawable/bg"
+		android:id="@+id/app_layout1" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:layout_margin="3px">
+		<ImageView android:id="@+id/app_icon1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true" android:src="@drawable/icon">
+		</ImageView>
+		<TextView android:id="@+id/app_text1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_marginLeft="50px"
+			android:layout_marginTop="10px" android:textColor="#FFFFFF"
+			android:text="正在加载">
+		</TextView>
+		<Button android:layout_width="wrap_content"
+			android:id="@+id/app_btn_close1" android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_marginRight="-1px" android:layout_marginTop="1px"
+			android:clickable="true" android:text="关闭">
+		</Button>
+		<Button android:layout_width="wrap_content"
+			android:id="@+id/app_btn_igonre1"
+			android:layout_height="wrap_content"
+			android:layout_alignRight="@+id/app_btn_close1"
+			android:layout_marginRight="65px" android:layout_marginTop="1px"
+			android:clickable="true" android:text="忽略">
+		</Button>
+	</RelativeLayout>
+	<RelativeLayout android:background="@drawable/bg"
+		android:id="@+id/app_layout2" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:layout_margin="3px">
+		<ImageView android:id="@+id/app_icon2"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true" android:src="@drawable/icon">
+		</ImageView>
+		<TextView android:id="@+id/app_text2"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_marginLeft="50px"
+			android:layout_marginTop="10px" android:textColor="#FFFFFF"
+			android:text="正在加载">
+		</TextView>
+		<Button android:layout_width="wrap_content"
+			android:id="@+id/app_btn_close2" android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_marginRight="-1px" android:layout_marginTop="1px"
+			android:clickable="true" android:text="关闭">
+		</Button>
+		<Button android:layout_width="wrap_content"
+			android:id="@+id/app_btn_igonre2"
+			android:layout_height="wrap_content"
+			android:layout_alignRight="@+id/app_btn_close2"
+			android:layout_marginRight="65px" android:layout_marginTop="1px"
+			android:clickable="true" android:text="忽略">
+		</Button>
+	</RelativeLayout>
+	<RelativeLayout android:background="@drawable/bg"
+		android:id="@+id/app_layout3" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:layout_margin="3px">
+		<ImageView android:id="@+id/app_icon3"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true" android:src="@drawable/icon">
+		</ImageView>
+		<TextView android:id="@+id/app_text3"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_marginLeft="50px"
+			android:layout_marginTop="10px" android:textColor="#FFFFFF"
+			android:text="正在加载">
+		</TextView>
+		<Button android:layout_width="wrap_content"
+			android:id="@+id/app_btn_igonre3"
+			android:layout_height="wrap_content"
+			android:layout_alignRight="@+id/app_btn_close3"
+			android:layout_marginRight="65px" android:layout_marginTop="1px"
+			android:clickable="true" android:text="忽略">
+		</Button>
+		<Button android:layout_width="wrap_content"
+			android:id="@+id/app_btn_close3" android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_marginRight="-1px" android:layout_marginTop="1px"
+			android:clickable="true" android:text="关闭">
+		</Button>
+	</RelativeLayout>
+	<RelativeLayout android:background="@drawable/bg"
+		android:id="@+id/app_layout4" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:layout_margin="3px">
+		<ImageView android:id="@+id/app_icon4"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true" android:src="@drawable/icon">
+		</ImageView>
+		<TextView android:id="@+id/app_text4"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_marginLeft="50px"
+			android:layout_marginTop="10px" android:textColor="#FFFFFF"
+			android:text="正在加载">
+		</TextView>
+		<Button android:layout_width="wrap_content"
+			android:id="@+id/app_btn_igonre4"
+			android:layout_height="wrap_content"
+			android:layout_alignRight="@+id/app_btn_close4"
+			android:layout_marginRight="65px" android:layout_marginTop="1px"
+			android:clickable="true" android:text="忽略">
+		</Button>
+		<Button android:layout_width="wrap_content"
+			android:id="@+id/app_btn_close4" android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_marginRight="-1px" android:layout_marginTop="1px"
+			android:clickable="true" android:text="关闭">
+		</Button>
+	</RelativeLayout>
+	<RelativeLayout android:background="@drawable/bg"
+		android:id="@+id/app_layout5" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:layout_margin="3px">
+		<ImageView android:id="@+id/app_icon5"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true" android:src="@drawable/icon">
+		</ImageView>
+		<TextView android:id="@+id/app_text5"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_marginLeft="50px"
+			android:layout_marginTop="10px" android:textColor="#FFFFFF"
+			android:text="正在加载">
+		</TextView>
+		<Button android:layout_width="wrap_content"
+			android:id="@+id/app_btn_igonre5"
+			android:layout_height="wrap_content"
+			android:layout_alignRight="@+id/app_btn_close5"
+			android:layout_marginRight="65px" android:layout_marginTop="1px"
+			android:clickable="true" android:text="忽略">
+		</Button>
+		<Button android:layout_width="wrap_content"
+			android:id="@+id/app_btn_close5" android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_marginRight="-1px" android:layout_marginTop="1px"
+			android:clickable="true" android:text="关闭">
+		</Button>
+	</RelativeLayout>
+	<RelativeLayout android:id="@+id/app_layout_main"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_margin="3px">
+		<Button android:layout_width="wrap_content"
+			android:id="@+id/app_btn_refresh"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_marginRight="15px" android:layout_marginTop="6px"
+			android:text="更新">
+		</Button>
+	</RelativeLayout>
+</LinearLayout>
+
+
+
