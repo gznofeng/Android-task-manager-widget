@@ -163,12 +163,14 @@ public class ExampleAppWidgetProvider extends AppWidgetProvider {
 			int pid=intent.getExtras().getInt("pid");
 			String packagename=intent.getExtras().getString("packagename");
 			android.os.Process.killProcess(pid);
-			mManager.killBackgroundProcesses(packagename);		
+			mManager.killBackgroundProcesses(packagename);	
+			hideLayout(view, index);
 			refresh(context, appWidgetManager, appWidgetIds);
 		}
 		if (intent.getAction().equalsIgnoreCase(COMMAND_IGNORE)) {
 			int index=intent.getExtras().getInt("index");
 			int pid=intent.getExtras().getInt("pid");
+			hideLayout(view, index);
 			String packagename=intent.getExtras().getString("packagename");
 			addIgnore(packagename);	
 			refresh(context, appWidgetManager, appWidgetIds);
