@@ -154,27 +154,36 @@ public class ExampleAppWidgetProvider extends AppWidgetProvider {
 	public void onReceive(Context context, Intent intent) {
 		super.onReceive(context, intent);
 		RemoteViews view = new RemoteViews(context.getPackageName(), R.layout.appwidget_provider);
-		AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+		final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
 		ComponentName thisAppWidget = new ComponentName(context.getPackageName(), ExampleAppWidgetProvider.class.getName());
-		int[] appWidgetIds = appWidgetManager.getAppWidgetIds(thisAppWidget);
-		if (intent.getAction().equalsIgnoreCase(COMMAND_KILL)) {			
-			ActivityManager mManager = (ActivityManager) context.getSystemService(context.ACTIVITY_SERVICE);
-			int index=intent.getExtras().getInt("index");
-			int pid=intent.getExtras().getInt("pid");
-			String packagename=intent.getExtras().getString("packagename");
-			android.os.Process.killProcess(pid);
-			mManager.killBackgroundProcesses(packagename);	
+		final int[] appWidgetIds = appWidgetManager.getAppWidgetIds(thisAppWidget);
+		if (intent.getAction().equalsIgnoreCase(COMMAND_KILL)) {	
+			final int index=intent.getExtras().getInt("index");
+			final int pid=intent.getExtras().getInt("pid");
 			hideLayout(view, index);
-			refresh(context, appWidgetManager, appWidgetIds);
+			appWidgetManager.updateAppWidget(appWidgetIds, view);
+			final Context tcontext=context;
+			final Intent tintent=intent;
+			new Thread(){
+				@Override
+				public void run() {
+					ActivityManager mManager = (ActivityManager) tcontext.getSystemService(tcontext.ACTIVITY_SERVICE);
+					String packagename=tintent.getExtras().getString("packagename");
+					android.os.Process.killProcess(pid);
+					mManager.killBackgroundProcesses(packagename);	
+					refresh(tcontext, appWidgetManager, appWidgetIds);
+					super.run();
+				}
+			}.start();			
 		}
 		if (intent.getAction().equalsIgnoreCase(COMMAND_IGNORE)) {
 			int index=intent.getExtras().getInt("index");
 			int pid=intent.getExtras().getInt("pid");
 			hideLayout(view, index);
+			appWidgetManager.updateAppWidget(appWidgetIds, view);
 			String packagename=intent.getExtras().getString("packagename");
 			addIgnore(packagename);	
 			refresh(context, appWidgetManager, appWidgetIds);
-
 		}
 		if (intent.getAction().startsWith(COMMAND_REFRESH)||intent.getAction().equals(Intent.ACTION_MAIN)) {
 			System.out.println("COMMAND_REFRESH");
