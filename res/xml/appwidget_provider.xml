@@ -15,8 +15,8 @@
 -->
 
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
-    android:minWidth="212px"
-    android:minHeight="296px"
+    android:minWidth="294dp"
+    android:minHeight="200dip"
     android:updatePeriodMillis="500"
     android:initialLayout="@layout/appwidget_provider"
     android:configure="com.sftask.appwidget.ExampleAppWidgetConfigure"
