@@ -182,7 +182,10 @@ public class ExampleAppWidgetProvider extends AppWidgetProvider {
 			hideLayout(view, index);
 			appWidgetManager.updateAppWidget(appWidgetIds, view);
 			String packagename=intent.getExtras().getString("packagename");
+			String processname=intent.getExtras().getString("processname");
 			addIgnore(packagename);	
+			addIgnore(processname);
+			
 			ignoreList=allIgonre();
 			refresh(context, appWidgetManager, appWidgetIds);
 		}
@@ -207,7 +210,7 @@ public class ExampleAppWidgetProvider extends AppWidgetProvider {
 		setIcon(view, i, app);
 		setText(view, i, app.getName());
 		setLinkBtn(context, view, i, app.getPid(), app.getPackagename());
-		setIgnoreBtn(context, view, i, app.getPid(), app.getPackagename());
+		setIgnoreBtn(context, view, i, app.getPid(), app.getPackagename(),app.getName());
 	}
 
 	public void showLayout(RemoteViews view, int i) {
@@ -258,7 +261,7 @@ public class ExampleAppWidgetProvider extends AppWidgetProvider {
 		view.setOnClickPendingIntent(btnId, pendingIntent);
 	}
 
-	public void setIgnoreBtn(Context context, RemoteViews view, int i, int pid, String packagename) {
+	public void setIgnoreBtn(Context context, RemoteViews view, int i, int pid, String packagename,String processname) {
 		if (!ignores.containsKey(i)) {
 			return;
 		}
@@ -268,6 +271,7 @@ public class ExampleAppWidgetProvider extends AppWidgetProvider {
 		Bundle bundle=new Bundle();
 		bundle.putInt("pid",pid);
 		bundle.putString("packagename", packagename);
+		bundle.putString("processname", processname);		
 		bundle.putInt("index", i);
 		intent.putExtras(bundle);
 		PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -282,8 +286,10 @@ public class ExampleAppWidgetProvider extends AppWidgetProvider {
 		} catch (Exception e) {
 			LogUtils.error(e);
 		}
-		contents.add(packagename);
-		IOUtils.writeLines(file, contents);
+		if(!contents.contains(packagename)){
+			contents.add(packagename);
+			IOUtils.writeLines(file, contents);
+		}		
 	}
 
 	public List<String> allIgonre() {
